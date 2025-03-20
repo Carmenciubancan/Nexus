@@ -7,7 +7,7 @@ wget https://download.sonatype.com/nexus/3/nexus-unix-x86-64-3.78.1-02.tar.gz
 tar -zxvf nexus-3.78.1-02
 
 adduser nexus
-chown -R nexus:nexus 
+chown -R nexus:nexus nexus-3.78.1-02
 chown -R nexus:nexus sonatype-work
 
 vim nexus-3.78.1-02/bin/nexus
@@ -17,4 +17,7 @@ su - nexus
 /opt/nexus-3.78.1-02/bin/nexus start
 
 ps aux | grep nexus
-netstat -lnpt
+netstat -tulnp | grep 8081
+
+
+# nexus is accessible at port 8081 on the server
